@@ -1,8 +1,8 @@
 import { useState } from "react";
-import styles from "./june.module.css";
+import styles from "./month.module.css";
 import { useEffect } from "react";
 
-export default function June() {
+export default function Month({ monthName, monthIndex }) {
   const [currDate, setCurDate] = useState(new Date());
   const [daysInMonth, setDaysInMonth] = useState([]);
   const [startDay, setStartDay] = useState(0);
@@ -10,22 +10,22 @@ export default function June() {
   const daysName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   useEffect(() => {
     const year = currDate.getFullYear();
-    const firstDate = new Date(year, 5, 1);
+    const firstDate = new Date(year, monthIndex, 1);
     const days = [];
 
-    while (firstDate.getMonth() === 5) {
+    while (firstDate.getMonth() === monthIndex) {
       days.push(new Date(firstDate));
       firstDate.setDate(firstDate.getDate() + 1);
     }
 
     setDaysInMonth(days);
-    setStartDay(new Date(year, 5, 1).getDay());
+    setStartDay(new Date(year, monthIndex, 1).getDay());
   }, [currDate]);
 
   return (
-    <div className={styles.june}>
+    <div className={styles.month}>
       <div className={styles.header}>
-        <div>June</div>
+        <div>{monthName}</div>
       </div>
       <div className={styles.weekBox}>
         {daysName.map((weekDay) => (

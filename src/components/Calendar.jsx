@@ -1,18 +1,7 @@
 import { useState } from "react";
 import styles from "./calendar.module.css";
-import January from "./January";
-import February from "./February";
-import March from "./March";
-import April from "./April";
-import May from "./May";
-import June from "./June";
-import July from "./July";
-import August from "./August";
-import September from "./September";
-import October from "./October";
-import November from "./November";
-import December from "./December";
 import Footer from "./Footer";
+import Month from "./month";
 
 export default function Calendar() {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -25,18 +14,18 @@ export default function Calendar() {
           <div>{year}</div>
         </div>
         <div className={styles.monthBox}>
-          <January />
-          <February />
-          <March />
-          <April />
-          <May />
-          <June />
-          <July />
-          <August />
-          <September />
-          <October />
-          <November />
-          <December />
+          <Month monthName={"January"} monthIndex={0} />
+          <Month monthName={"February"} monthIndex={1} />
+          <Month monthName={"March"} monthIndex={2} />
+          <Month monthName={"April"} monthIndex={3} />
+          <Month monthName={"May"} monthIndex={4} />
+          <Month monthName={"June"} monthIndex={5} />
+          <Month monthName={"July"} monthIndex={6} />
+          <Month monthName={"August"} monthIndex={7} />
+          <Month monthName={"September"} monthIndex={8} />
+          <Month monthName={"October"} monthIndex={9} />
+          <Month monthName={"November"} monthIndex={10} />
+          <Month monthName={"December"} monthIndex={11} />
         </div>
       </div>
       <div className={styles.footer}>
